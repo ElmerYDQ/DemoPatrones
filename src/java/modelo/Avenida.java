@@ -3,25 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entidad;
+package modelo;
 
 /**
  *
  * @author Diaz
  */
-public class Paradero {
-    private int idParadero;
+public class Avenida {
     private int idAvenida;
     private String nombre;
-    private String direccion;
-
-    public int getIdParadero() {
-        return idParadero;
-    }
-
-    public void setIdParadero(int idParadero) {
-        this.idParadero = idParadero;
-    }
 
     public int getIdAvenida() {
         return idAvenida;
@@ -39,17 +29,9 @@ public class Paradero {
         this.nombre = nombre;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     @Override
     public String toString() {
-        return "Paradero{" + "idParadero=" + idParadero + ", idAvenida=" + idAvenida + ", nombre=" + nombre + ", direccion=" + direccion + '}';
+        return "Avenida{" + "idAvenida=" + idAvenida + ", nombre=" + nombre + '}';
     }
     
 }
