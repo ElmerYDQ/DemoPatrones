@@ -13,7 +13,7 @@ import java.sql.Date;
  */
 public class HistorialBus {
     private int idruta;
-    private int id_bus;
+    private int idBus;
     private Date fecha;
 
     public int getIdruta() {
@@ -24,12 +24,12 @@ public class HistorialBus {
         this.idruta = idruta;
     }
 
-    public int getId_bus() {
-        return id_bus;
+    public int getIdBus() {
+        return idBus;
     }
 
-    public void setId_bus(int id_bus) {
-        this.id_bus = id_bus;
+    public void setIdBus(int idBus) {
+        this.idBus = idBus;
     }
 
     public Date getFecha() {
@@ -42,7 +42,7 @@ public class HistorialBus {
 
     @Override
     public String toString() {
-        return "HistorialBus{" + "idruta=" + idruta + ", id_bus=" + id_bus + ", fecha=" + fecha + '}';
+        return "HistorialBus{" + "idruta=" + idruta + ", idBus=" + idBus + ", fecha=" + fecha + '}';
     }
     
 }
