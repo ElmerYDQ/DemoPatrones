@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Administrador;
+import modelo.PersonaClone;
 
 /**
  *
@@ -22,6 +23,7 @@ import modelo.Administrador;
 public class AdministradorDaoImpl implements IAdministradorDAO {
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
+    private static PersonaClone clone = new PersonaClone();
     
     private final String select = "select * from administrador";
     private final String selectId = "select * from administrador where id_administrador = ?";
@@ -39,7 +41,7 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
             pstm = con.prepareStatement(select);
             rs = pstm.executeQuery();
             while(rs.next()) {
-                administrador  = new Administrador();
+                administrador  = (Administrador) clone.createBasicItem("administrador");
                 administrador.setIdAdministrador(rs.getInt(1));
                 administrador.setNombre(rs.getString(2));
                 administrador.setApellido(rs.getString(3));
@@ -58,7 +60,7 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
 
     @Override
     public Administrador getAdministradorId(int id) {
-        Administrador administrador = new Administrador();
+        Administrador administrador = (Administrador) clone.createBasicItem("administrador");
         PreparedStatement pstm = null;
         ResultSet rs =  null;
         try {

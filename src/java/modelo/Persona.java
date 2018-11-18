@@ -9,13 +9,23 @@ package modelo;
  *
  * @author Diaz
  */
-public class Persona {
+public abstract class Persona implements Cloneable {
     private String nombre;
     private String apellido;
     private String dni;
     private String telefono;
     private String email;
 
+    public Persona clone() {
+        Persona clonedItem = null;
+        try {
+            clonedItem = (Persona) super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return clonedItem;
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -55,4 +65,10 @@ public class Persona {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono + ", email=" + email + '}';
+    }
+    
 }

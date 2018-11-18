@@ -9,13 +9,8 @@ package modelo;
  *
  * @author Diaz
  */
-public class Administrador {
+public class Administrador extends Persona {
     private int idAdministrador;
-    private String nombre;
-    private String apellido;
-    private String dni;
-    private String telefono;
-    private String email;
     private String usuario;
     private String contrasena;
 
@@ -26,47 +21,7 @@ public class Administrador {
     public void setIdAdministrador(int idAdministrador) {
         this.idAdministrador = idAdministrador;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
     public String getUsuario() {
         return usuario;
     }
@@ -85,7 +40,7 @@ public class Administrador {
 
     @Override
     public String toString() {
-        return "Administrador{" + "idAdministrador=" + idAdministrador + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono + ", email=" + email + ", usuario=" + usuario + ", contrasena=" + contrasena + '}';
+        return "Persona: " + super.toString() + " Administrador{" + "idAdministrador=" + idAdministrador + ", usuario=" + usuario + ", contrasena=" + contrasena + '}';
     }
     
 }

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Conductor;
+import modelo.PersonaClone;
 
 /**
  *
@@ -23,6 +24,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
+    private static PersonaClone clone = new PersonaClone();
     
     private final String select = "select * from conductor";
     private final String selectId = "select * from conductor where id_conductor = ?";
@@ -40,7 +42,7 @@ public class ConductorDaoImpl implements IConductorDAO {
             pstm = con.prepareStatement(select);
             rs = pstm.executeQuery();
             while(rs.next()) {
-                conductor  = new Conductor();
+                conductor  = (Conductor) clone.createBasicItem("conductor");
                 conductor.setIdConductor(rs.getInt(1));
                 conductor.setNombre(rs.getString(2));
                 conductor.setApellido(rs.getString(3));
@@ -59,7 +61,7 @@ public class ConductorDaoImpl implements IConductorDAO {
 
     @Override
     public Conductor getConductorId(int id) {
-        Conductor conductor = new Conductor();
+        Conductor conductor = (Conductor) clone.createBasicItem("conductor");
         PreparedStatement pstm = null;
         ResultSet rs =  null;
         try {
