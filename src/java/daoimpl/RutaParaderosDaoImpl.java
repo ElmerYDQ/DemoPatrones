@@ -58,7 +58,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
         PreparedStatement pstm = null;
         ResultSet rs = null;
         try {
-            pstm = con.prepareStatement(select);
+            pstm = con.prepareStatement(selectRuta);
             pstm.setInt(1, idRuta);
             rs = pstm.executeQuery();
             while(rs.next()) {
