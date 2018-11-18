@@ -15,11 +15,13 @@ import modelo.RutaParaderos;
 public interface IRutaParaderosDAO {
     public List<RutaParaderos> getRutaParaderos();
     
-    public RutaParaderos getRutaParaderosId(int id);
+    public List<RutaParaderos> getRutaParaderosRuta(int id);
+    
+    public RutaParaderos getRutaParaderosId(int idRuta, int idParadero);
     
     public void addRutaParaderos(RutaParaderos rutaParaderos);
     
-    public void deleteRutaParaderos(int id);
+    public void deleteRutaParaderos(int idRuta, int idParadero);
     
-    public void updateRutaParaderos(RutaParaderos rutaParaderos);
+    public void updateRutaParaderos(RutaParaderos rutaParaderos, int antiguo);
 }

@@ -6,7 +6,7 @@
 package daoimpl;
 
 import conexion.ConexionSingleton;
-import dao.IHistorialConductorDAO;
+import dao.IHistorialDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import modelo.HistorialConductor;
  *
  * @author Diaz
  */
-public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
+public class HistorialConductorDaoImpl<T> implements IHistorialDAO<T> {
 
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
@@ -29,7 +29,7 @@ public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
     private final String insert = "insert into historialconductor (id_bus, id_conductor, fecha) values (?, ?, ?)";
 
     @Override
-    public List<HistorialConductor> getHistorialConductores() {
+    public List<T> getHistoriales() {
         HistorialConductor historialConductor;
         List<HistorialConductor> historialConductores = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -47,11 +47,11 @@ public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return historialConductores;
+        return (List<T>) historialConductores;
     }
 
     @Override
-    public HistorialConductor getHistorialConductorId(int idBus, int idConductor) {
+    public T getHistorialId(int idBus, int idConductor) {
         HistorialConductor historialConductor = new HistorialConductor();
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -67,11 +67,12 @@ public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return historialConductor;
+        return (T) historialConductor;
     }
 
     @Override
-    public void addHistorialConductor(HistorialConductor historialConductor) {
+    public void addHistorial(T historial) {
+        HistorialConductor historialConductor = (HistorialConductor) historial;
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);

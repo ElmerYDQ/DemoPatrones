@@ -1,0 +1,10 @@
+singleton
+prototype
+method factory
+iterator
+
+
+
+
+mvc
+dao

@@ -6,7 +6,7 @@
 package daoimpl;
 
 import conexion.ConexionSingleton;
-import dao.IHistorialBusDAO;
+import dao.IHistorialDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import modelo.HistorialBus;
  *
  * @author Diaz
  */
-public class HistorialBusDaoImpl implements IHistorialBusDAO {
+public class HistorialBusDaoImpl<T> implements IHistorialDAO<T> {
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
     
@@ -28,7 +28,7 @@ public class HistorialBusDaoImpl implements IHistorialBusDAO {
     private final String insert = "insert into historialbus (id_ruta, id_bus, fecha) values (?, ?, ?)";
     
     @Override
-    public List<HistorialBus> getHistorialBuses() {
+    public List<T> getHistoriales() {
         HistorialBus historialBus;
         List<HistorialBus> historialBuses = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -46,11 +46,11 @@ public class HistorialBusDaoImpl implements IHistorialBusDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return historialBuses;
+        return (List<T>) historialBuses;
     }
 
     @Override
-    public HistorialBus getHistorialBusId(int idRuta, int idBus) {
+    public T getHistorialId(int idRuta, int idBus) {
         HistorialBus historialBus = new HistorialBus();
         PreparedStatement pstm = null;
         ResultSet rs =  null;
@@ -66,11 +66,12 @@ public class HistorialBusDaoImpl implements IHistorialBusDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return historialBus;
+        return (T) historialBus;
     }
 
     @Override
-    public void addHistorialBus(HistorialBus historialBus) {
+    public void addHistorial(T historial) {
+        HistorialBus historialBus = (HistorialBus) historial;
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
