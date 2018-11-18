@@ -9,15 +9,29 @@ package modelo;
  *
  * @author Diaz
  */
-public class LeafComponente extends Componente {
-    private RutaParaderos rutaParaderos;
-    
-    public LeafComponente(RutaParaderos rutaParaderos) {
-        this.rutaParaderos = rutaParaderos;
+public class LeafRutaParadero extends Componente {
+    private int idRuta;
+    private int idParadero;
+
+    public int getIdRuta() {
+        return idRuta;
     }
 
-    public RutaParaderos getRutaParaderos() {
-        return rutaParaderos;
+    public void setIdRuta(int idRuta) {
+        this.idRuta = idRuta;
+    }
+
+    public int getIdParadero() {
+        return idParadero;
+    }
+
+    public void setIdParadero(int idParadero) {
+        this.idParadero = idParadero;
+    }
+
+    @Override
+    public String toString() {
+        return "RutaParaderos{" + "idRuta=" + idRuta + ", idParadero=" + idParadero + '}';
     }
     
     @Override
