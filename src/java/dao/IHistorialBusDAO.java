@@ -6,20 +6,16 @@
 package dao;
 
 import java.util.List;
-import modelo.Ruta;
+import modelo.HistorialBus;
 
 /**
  *
  * @author Diaz
  */
-public interface IRutaDAO {
-    public List<Ruta> getRutas();
+public interface IHistorialBusDAO {
+    public List<HistorialBus> getHistorialBuses();
     
-    public Ruta getRutaId(int id);
+    public HistorialBus getHistorialBusId(int idRuta, int idBus);
     
-    public void addRuta(Ruta ruta);
-    
-    public void deleteRuta(int id);
-    
-    public void updateRuta(Ruta ruta);
+    public void addHistorialBus(HistorialBus historialBus);
 }

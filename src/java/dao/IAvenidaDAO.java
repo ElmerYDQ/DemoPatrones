@@ -13,7 +13,7 @@ import modelo.Avenida;
  * @author Diaz
  */
 public interface IAvenidaDAO {
-    public List<Avenida> getAvenida();
+    public List<Avenida> getAvenidas();
     
     public Avenida getAvenidaId(int id);
     

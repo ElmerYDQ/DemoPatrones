@@ -12,14 +12,14 @@ import modelo.EstadoBus;
  *
  * @author Diaz
  */
-public interface IEstadoDAO {
-    public List<EstadoBus> getEstadoes();
+public interface IEstadoBusDAO {
+    public List<EstadoBus> getEstadoBuses();
     
-    public EstadoBus getEstadoId(int id);
+    public EstadoBus getEstadoBusId(int id);
     
-    public void addEstado(EstadoBus estado);
+    public void addEstadoBus(EstadoBus estado);
     
-    public void deleteEstado(int id);
+    public void deleteEstadoBus(int id);
     
-    public void updateEstado(EstadoBus estado);
+    public void updateEstadoBus(EstadoBus estado);
 }

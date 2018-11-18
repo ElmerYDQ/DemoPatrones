@@ -2,6 +2,22 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/daoimpl/ParaderoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IBusDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IEstadoDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IConductorDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Ruta.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Avenida.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/daoimpl/BusDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IParaderoDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IRutaDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IAdministradorDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/daoimpl/ConductorDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IAvenidaDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/RutaParaderos.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/principal/Principal.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Bus.java</file>
+        </group>
     </open-files>
 </project-private>
