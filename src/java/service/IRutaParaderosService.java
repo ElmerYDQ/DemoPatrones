@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package service;
 
 import java.util.List;
 import modelo.RutaParaderos;
@@ -12,7 +12,7 @@ import modelo.RutaParaderos;
  *
  * @author Diaz
  */
-public interface IRutaParaderosDAO {
+public interface IRutaParaderosService {
     public List<RutaParaderos> listar();
     
     public List<RutaParaderos> getRutaParaderosRuta(int id);

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package service;
 
-import java.util.List;
-import modelo.Bus;
+import modelo.Administrador;
 
 /**
  *
  * @author Diaz
  */
-public interface IBusDAO extends IDAO<Bus> {
+public interface IAdministradorService extends IService<Administrador> {
+    
+    public Administrador validarUsuario(String usuario, String contrasena);
     
 }

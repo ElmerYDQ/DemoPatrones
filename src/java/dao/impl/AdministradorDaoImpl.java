@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IAdministradorDAO;
@@ -21,18 +21,21 @@ import modelo.PersonaClone;
  * @author Diaz
  */
 public class AdministradorDaoImpl implements IAdministradorDAO {
+
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
-    private static PersonaClone clone = new PersonaClone();
-    
+    private PersonaClone clone;
+
     private final String select = "select * from administrador";
     private final String selectId = "select * from administrador where id_administrador = ?";
+    private final String login = "select * from administrador where usuario = ? and contrasena = ?";
     private final String insert = "insert into administrador (nombre, apellido, dni, telefono, email, usuario, contrasena) values (?, ?, ?, ?, ?, ?, ?)";
     private final String delete = "delete from administrador where id_administrador = ?";
     private final String update = "update administrador set nombre = ?, apellido = ?, dni = ?, telefono = ?, email = ?, usuario = ?, contrasena = ? where id_administrador = ?";
-    
+
     @Override
-    public List<Administrador> getAdministradores() {
+    public List<Administrador> listar() {
+        clone = new PersonaClone();
         Administrador administrador;
         List<Administrador> administradores = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -40,8 +43,8 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
         try {
             pstm = con.prepareStatement(select);
             rs = pstm.executeQuery();
-            while(rs.next()) {
-                administrador  = (Administrador) clone.createBasicItem("administrador");
+            while (rs.next()) {
+                administrador = (Administrador) clone.createBasicItem("administrador");
                 administrador.setIdAdministrador(rs.getInt(1));
                 administrador.setNombre(rs.getString(2));
                 administrador.setApellido(rs.getString(3));
@@ -59,10 +62,11 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
     }
 
     @Override
-    public Administrador getAdministradorId(int id) {
+    public Administrador getId(int id) {
+        clone = new PersonaClone();
         Administrador administrador = (Administrador) clone.createBasicItem("administrador");
         PreparedStatement pstm = null;
-        ResultSet rs =  null;
+        ResultSet rs = null;
         try {
             pstm = con.prepareStatement(selectId);
             pstm.setInt(1, id);
@@ -83,7 +87,34 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
     }
 
     @Override
-    public void addAdministrador(Administrador administrador) {
+    public Administrador validarUsuario(String usuario, String contrasena) {
+        clone = new PersonaClone();
+        Administrador administrador = (Administrador) clone.createBasicItem("administrador");
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        try {
+            pstm = con.prepareStatement(login);
+            pstm.setString(1, usuario);
+            pstm.setString(2, contrasena);
+            rs = pstm.executeQuery();
+            while (rs.next()) {
+                administrador.setIdAdministrador(rs.getInt(1));
+                administrador.setNombre(rs.getString(2));
+                administrador.setApellido(rs.getString(3));
+                administrador.setDni(rs.getString(4));
+                administrador.setTelefono(rs.getString(5));
+                administrador.setEmail(rs.getString(6));
+                administrador.setUsuario(rs.getString(7));
+                administrador.setContrasena(rs.getString(8));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return administrador;
+    }
+
+    @Override
+    public void add(Administrador administrador) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -101,7 +132,7 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
     }
 
     @Override
-    public void deleteAdministrador(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -113,7 +144,7 @@ public class AdministradorDaoImpl implements IAdministradorDAO {
     }
 
     @Override
-    public void updateAdministrador(Administrador administrador) {
+    public void update(Administrador administrador) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

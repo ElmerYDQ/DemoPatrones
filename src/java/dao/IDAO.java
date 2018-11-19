@@ -6,12 +6,20 @@
 package dao;
 
 import java.util.List;
-import modelo.Bus;
 
 /**
  *
  * @author Diaz
  */
-public interface IBusDAO extends IDAO<Bus> {
+public interface IDAO<T> {
     
+    public List<T> listar();
+    
+    public T getId(int id);
+    
+    public void add(T t);
+    
+    public void delete(int id);
+    
+    public void update(T t);
 }

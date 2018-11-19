@@ -12,14 +12,6 @@ import modelo.Paradero;
  *
  * @author Diaz
  */
-public interface IParaderoDAO {
-    public List<Paradero> getParaderoes();
+public interface IParaderoDAO extends IDAO<Paradero> {
     
-    public Paradero getParaderoId(int id);
-    
-    public void addParadero(Paradero paradero);
-    
-    public void deleteParadero(int id);
-    
-    public void updateParadero(Paradero paradero);
 }

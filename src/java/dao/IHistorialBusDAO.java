@@ -5,17 +5,12 @@
  */
 package dao;
 
-import java.util.List;
 import modelo.HistorialBus;
 
 /**
  *
  * @author Diaz
  */
-public interface IHistorialBusDAO {
-    public List<HistorialBus> getHistorialBuses();
+public interface IHistorialBusDAO extends IHistorialDAO<HistorialBus> {
     
-    public HistorialBus getHistorialBusId(int idRuta, int idBus);
-    
-    public void addHistorialBus(HistorialBus historialBus);
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IAvenidaDAO;
@@ -30,7 +30,7 @@ public class AvenidaDaoImpl implements IAvenidaDAO {
     private final String update = "update avenida set nombre = ? where id_avenida = ?";
     
     @Override
-    public List<Avenida> getAvenidas() {
+    public List<Avenida> listar() {
         Avenida avenida;
         List<Avenida> avenidas = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -51,7 +51,7 @@ public class AvenidaDaoImpl implements IAvenidaDAO {
     }
 
     @Override
-    public Avenida getAvenidaId(int id) {
+    public Avenida getId(int id) {
         Avenida avenida = new Avenida();
         PreparedStatement pstm = null;
         ResultSet rs =  null;
@@ -69,7 +69,7 @@ public class AvenidaDaoImpl implements IAvenidaDAO {
     }
 
     @Override
-    public void addAvenida(Avenida avenida) {
+    public void add(Avenida avenida) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -81,7 +81,7 @@ public class AvenidaDaoImpl implements IAvenidaDAO {
     }
 
     @Override
-    public void deleteAvenida(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -93,7 +93,7 @@ public class AvenidaDaoImpl implements IAvenidaDAO {
     }
 
     @Override
-    public void updateAvenida(Avenida avenida) {
+    public void update(Avenida avenida) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IParaderoDAO;
@@ -19,7 +19,7 @@ import modelo.Paradero;
  *
  * @author Diaz
  */
-public class ParaderoImpl implements IParaderoDAO {
+public class ParaderoDaoImpl implements IParaderoDAO {
 
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
@@ -31,7 +31,7 @@ public class ParaderoImpl implements IParaderoDAO {
     private final String update = "update paradero set id_avenida = ?, nombre = ?, direccion = ? where id_paradero = ?";
 
     @Override
-    public List<Paradero> getParaderoes() {
+    public List<Paradero> listar() {
         Paradero paradero;
         List<Paradero> paraderos = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -54,7 +54,7 @@ public class ParaderoImpl implements IParaderoDAO {
     }
 
     @Override
-    public Paradero getParaderoId(int id) {
+    public Paradero getId(int id) {
         Paradero paradero = new Paradero();
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -74,7 +74,7 @@ public class ParaderoImpl implements IParaderoDAO {
     }
 
     @Override
-    public void addParadero(Paradero paradero) {
+    public void add(Paradero paradero) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -88,7 +88,7 @@ public class ParaderoImpl implements IParaderoDAO {
     }
 
     @Override
-    public void deleteParadero(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -100,7 +100,7 @@ public class ParaderoImpl implements IParaderoDAO {
     }
 
     @Override
-    public void updateParadero(Paradero paradero) {
+    public void update(Paradero paradero) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

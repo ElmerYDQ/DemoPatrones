@@ -12,14 +12,6 @@ import modelo.Avenida;
  *
  * @author Diaz
  */
-public interface IAvenidaDAO {
-    public List<Avenida> getAvenidas();
+public interface IAvenidaDAO extends IDAO<Avenida> {
     
-    public Avenida getAvenidaId(int id);
-    
-    public void addAvenida(Avenida avenida);
-    
-    public void deleteAvenida(int id);
-    
-    public void updateAvenida(Avenida avenida);
 }

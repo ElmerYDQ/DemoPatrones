@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package service;
 
 import java.util.List;
-import modelo.Bus;
 
 /**
  *
  * @author Diaz
  */
-public interface IBusDAO extends IDAO<Bus> {
+public interface IHistorialService<T> {
+    public List<T> getHistoriales();
     
+    public T getHistorialId(int id1, int id2);
+    
+    public void addHistorial(T historial);
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IBusDAO;
@@ -31,7 +31,7 @@ public class BusDaoImpl implements IBusDAO {
     private final String update = "update bus set id_estado = ?, placa = ?, soat = ?, capacidad = ?, anho = ? where id_bus = ?";
 
     @Override
-    public List<Bus> getBuses() {
+    public List<Bus> listar() {
         Bus bus;
         List<Bus> buses = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -56,7 +56,7 @@ public class BusDaoImpl implements IBusDAO {
     }
 
     @Override
-    public Bus getBusId(int id) {
+    public Bus getId(int id) {
         Bus bus = new Bus();
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -78,7 +78,7 @@ public class BusDaoImpl implements IBusDAO {
     }
 
     @Override
-    public void addBus(Bus bus) {
+    public void add(Bus bus) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -94,7 +94,7 @@ public class BusDaoImpl implements IBusDAO {
     }
 
     @Override
-    public void deleteBus(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -106,7 +106,7 @@ public class BusDaoImpl implements IBusDAO {
     }
 
     @Override
-    public void updateBus(Bus bus) {
+    public void update(Bus bus) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

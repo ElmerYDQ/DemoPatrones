@@ -12,14 +12,6 @@ import modelo.Ruta;
  *
  * @author Diaz
  */
-public interface IRutaDAO {
-    public List<Ruta> getRutas();
+public interface IRutaDAO extends IDAO<Ruta> {
     
-    public Ruta getRutaId(int id);
-    
-    public void addRuta(Ruta ruta);
-    
-    public void deleteRuta(int id);
-    
-    public void updateRuta(Ruta ruta);
 }

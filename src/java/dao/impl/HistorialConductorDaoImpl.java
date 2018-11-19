@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
-import dao.IHistorialDAO;
+import dao.IHistorialConductorDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import modelo.HistorialConductor;
  *
  * @author Diaz
  */
-public class HistorialConductorDaoImpl<T> implements IHistorialDAO<T> {
+public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
 
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
@@ -29,7 +29,7 @@ public class HistorialConductorDaoImpl<T> implements IHistorialDAO<T> {
     private final String insert = "insert into historialconductor (id_bus, id_conductor, fecha) values (?, ?, ?)";
 
     @Override
-    public List<T> getHistoriales() {
+    public List<HistorialConductor> getHistoriales() {
         HistorialConductor historialConductor;
         List<HistorialConductor> historialConductores = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -47,11 +47,11 @@ public class HistorialConductorDaoImpl<T> implements IHistorialDAO<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return (List<T>) historialConductores;
+        return historialConductores;
     }
 
     @Override
-    public T getHistorialId(int idBus, int idConductor) {
+    public HistorialConductor getHistorialId(int idBus, int idConductor) {
         HistorialConductor historialConductor = new HistorialConductor();
         PreparedStatement pstm = null;
         ResultSet rs = null;
@@ -67,11 +67,11 @@ public class HistorialConductorDaoImpl<T> implements IHistorialDAO<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return (T) historialConductor;
+        return historialConductor;
     }
 
     @Override
-    public void addHistorial(T historial) {
+    public void addHistorial(HistorialConductor historial) {
         HistorialConductor historialConductor = (HistorialConductor) historial;
         PreparedStatement pstm = null;
         try {

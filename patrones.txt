@@ -2,9 +2,10 @@ singleton
 prototype
 method factory
 iterator
-
+composite jsp:include
 
 
 
 mvc
 dao
+template

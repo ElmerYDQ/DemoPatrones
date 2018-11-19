@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IRutaParaderosDAO;
@@ -31,7 +31,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     private final String update = "update rutaParaderos set id_paradero = ? where id_paradero = ?";
     
     @Override
-    public List<RutaParaderos> getRutaParaderos() {
+    public List<RutaParaderos> listar() {
         RutaParaderos rutaParadero;
         List<RutaParaderos> rutaParaderos = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -74,7 +74,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     }
 
     @Override
-    public RutaParaderos getRutaParaderosId(int idRuta, int idParadero) {
+    public RutaParaderos getId(int idRuta, int idParadero) {
         RutaParaderos rutaParadero = new RutaParaderos();
         PreparedStatement pstm = null;
         ResultSet rs =  null;
@@ -93,7 +93,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     }
 
     @Override
-    public void addRutaParaderos(RutaParaderos rutaParaderos) {
+    public void add(RutaParaderos rutaParaderos) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -106,7 +106,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     }
 
     @Override
-    public void deleteRutaParaderos(int idRuta, int idParadero) {
+    public void delete(int idRuta, int idParadero) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -119,7 +119,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     }
 
     @Override
-    public void updateRutaParaderos(RutaParaderos rutaParaderos, int antiguo) {
+    public void update(RutaParaderos rutaParaderos, int antiguo) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

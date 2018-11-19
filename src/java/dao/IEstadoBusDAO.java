@@ -12,14 +12,6 @@ import modelo.EstadoBus;
  *
  * @author Diaz
  */
-public interface IEstadoBusDAO {
-    public List<EstadoBus> getEstadoBuses();
+public interface IEstadoBusDAO extends IDAO<EstadoBus> {
     
-    public EstadoBus getEstadoBusId(int id);
-    
-    public void addEstadoBus(EstadoBus estado);
-    
-    public void deleteEstadoBus(int id);
-    
-    public void updateEstadoBus(EstadoBus estado);
 }

@@ -16,8 +16,8 @@ public abstract class Persona implements Cloneable {
     private String telefono;
     private String email;
 
-    public Persona clone() {
-        Persona clonedItem = null;
+    public Object clone() {
+        Object clonedItem = null;
         try {
             clonedItem = (Persona) super.clone();
         } catch (CloneNotSupportedException e) {

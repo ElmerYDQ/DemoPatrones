@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
 import dao.IConductorDAO;
@@ -33,7 +33,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     private final String update = "update conductor set nombres = ?, apellidos = ?, dni = ?, brevete = ?, telefono = ?, direccion = ?, email = ? where id_conductor = ?";
     
     @Override
-    public List<Conductor> getConductores() {
+    public List<Conductor> listar() {
         Conductor conductor;
         List<Conductor> conductores = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -60,7 +60,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     }
 
     @Override
-    public Conductor getConductorId(int id) {
+    public Conductor getId(int id) {
         Conductor conductor = (Conductor) clone.createBasicItem("conductor");
         PreparedStatement pstm = null;
         ResultSet rs =  null;
@@ -84,7 +84,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     }
 
     @Override
-    public void addConductor(Conductor conductor) {
+    public void add(Conductor conductor) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
@@ -102,7 +102,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     }
 
     @Override
-    public void deleteConductor(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -114,7 +114,7 @@ public class ConductorDaoImpl implements IConductorDAO {
     }
 
     @Override
-    public void updateConductor(Conductor conductor) {
+    public void update(Conductor conductor) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);

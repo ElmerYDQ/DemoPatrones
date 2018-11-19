@@ -3,77 +3,84 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
+import dao.IRutaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.EstadoBus;
-import dao.IEstadoBusDAO;
+import modelo.Ruta;
 
 /**
  *
  * @author Diaz
  */
-public class EstadoBusDaoImpl implements IEstadoBusDAO {
+public class RutaDaoImpl implements IRutaDAO {
+
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
-    
-    private final String select = "select * from estado_bus";
-    private final String selectId = "select * from estado where id_estado = ?";
-    private final String insert = "insert into estado (nombre) values (?)";
-    private final String delete = "delete from estado where id_estado = ?";
-    private final String update = "update estado set nombre = ? where id_estado = ?";
-    
+
+    private final String select = "select * from ruta";
+    private final String selectId = "select * from ruta where id_ruta = ?";
+    private final String insert = "insert into ruta (paradero_inicio, paradero_fin, nombre) values (?, ?, ?, ?, ?, ?, ?)";
+    private final String delete = "delete from ruta where id_ruta = ?";
+    private final String update = "update ruta set paradero_inicio = ?, paradarero = ?, nombre = ? where id_ruta = ?";
+
     @Override
-    public List<EstadoBus> getEstadoBuses() {
-        EstadoBus estado;
-        List<EstadoBus> estadoes = new ArrayList<>();
+    public List<Ruta> listar() {
+        Ruta ruta;
+        List<Ruta> rutaes = new ArrayList<>();
         PreparedStatement pstm = null;
         ResultSet rs = null;
         try {
             pstm = con.prepareStatement(select);
             rs = pstm.executeQuery();
-            while(rs.next()) {
-                estado  = new EstadoBus();
-                estado.setIdEstado(rs.getInt(1));
-                estado.setNombre(rs.getString(2));
-                estadoes.add(estado);
+            while (rs.next()) {
+                ruta = new Ruta();
+                ruta.setIdRuta(rs.getInt(1));
+                ruta.setParaderoInicio(rs.getInt(2));
+                ruta.setParaderoFinal(rs.getInt(3));
+                ruta.setNombre(rs.getString(4));
+                rutaes.add(ruta);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return estadoes;
+        return rutaes;
     }
 
     @Override
-    public EstadoBus getEstadoBusId(int id) {
-        EstadoBus estado = new EstadoBus();
+    public Ruta getId(int id) {
+        Ruta ruta = new Ruta();
         PreparedStatement pstm = null;
-        ResultSet rs =  null;
+        ResultSet rs = null;
         try {
             pstm = con.prepareStatement(selectId);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
             rs.next();
-            estado.setIdEstado(rs.getInt(1));
-            estado.setNombre(rs.getString(2));
+            ruta.setIdRuta(rs.getInt(1));
+            ruta.setParaderoInicio(rs.getInt(2));
+            ruta.setParaderoFinal(rs.getInt(3));
+            ruta.setNombre(rs.getString(4));
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return estado;
+        return ruta;
     }
 
     @Override
-    public void addEstadoBus(EstadoBus estado) {
+    public void add(Ruta ruta) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(insert);
-            pstm.setString(1, estado.getNombre());
+            pstm.setInt(1, ruta.getParaderoInicio());
+            pstm.setInt(2, ruta.getParaderoFinal());
+            pstm.setString(3, ruta.getNombre());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -81,7 +88,7 @@ public class EstadoBusDaoImpl implements IEstadoBusDAO {
     }
 
     @Override
-    public void deleteEstadoBus(int id) {
+    public void delete(int id) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(delete);
@@ -93,11 +100,14 @@ public class EstadoBusDaoImpl implements IEstadoBusDAO {
     }
 
     @Override
-    public void updateEstadoBus(EstadoBus estado) {
+    public void update(Ruta ruta) {
         PreparedStatement pstm = null;
         try {
             pstm = con.prepareStatement(update);
-            pstm.setString(1, estado.getNombre());
+            pstm.setInt(1, ruta.getParaderoInicio());
+            pstm.setInt(2, ruta.getParaderoFinal());
+            pstm.setString(3, ruta.getNombre());
+            pstm.setInt(4, ruta.getIdRuta());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

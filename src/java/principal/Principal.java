@@ -5,9 +5,14 @@
  */
 package principal;
 
+import dao.IAdministradorDAO;
 import dao.IConductorDAO;
-import daoimpl.ConductorDaoImpl;
+import dao.impl.AdministradorDaoImpl;
+import dao.impl.ConductorDaoImpl;
+import java.util.List;
+import modelo.Administrador;
 import modelo.Conductor;
+import modelo.PersonaClone;
 
 /**
  *
@@ -15,29 +20,6 @@ import modelo.Conductor;
  */
 public class Principal {
     public static void main(String[] args) {
-        IConductorDAO dao = new ConductorDaoImpl();
-        /*Conductor conductor = new Conductor();
-        conductor.setNombre("joel");
-        conductor.setApellido("bejar");
-        conductor.setDni("74025623");
-        conductor.setBrevete("123456");
-        conductor.setDireccion("villa maria");
-        conductor.setEmail("bejar@gamil.com");
-        conductor.setTelefono("123456987");
-        dao.addConductor(conductor);
-        for (Conductor c : dao.getConductores()) {
-            System.out.println(c.toString());
-        }
-        conductor.setNombre("antonio");
-        dao.updateConductor(conductor);
-        for (Conductor c : dao.getConductores()) {
-            System.out.println(c.toString());
-        }*/
-        dao.deleteConductor(2);
-        dao.deleteConductor(3);
-        for (Conductor c : dao.getConductores()) {
-            System.out.println(c.toString());
-        }
-        System.out.println(dao.getConductorId(1));
+        
     }
 }

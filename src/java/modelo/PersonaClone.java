@@ -18,7 +18,7 @@ public class PersonaClone {
         loadCache();
     }
     
-    public Persona createBasicItem(String type) {
+    public Object createBasicItem(String type) {
         return map.get(type).clone();
     }
     

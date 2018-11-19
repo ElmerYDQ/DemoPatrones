@@ -13,5 +13,13 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <form action="ServletSesion" method="post">
+            <input type="hidden" name="accion" value="ingresar">
+            <h3>Usuario</h3>
+            <input type="text" name="usuario">
+            <h3>Contraseña</h3>
+            <input type="password" name="contraseña">
+            <input type="submit" value="Ingresar">
+        </form>
     </body>
 </html>

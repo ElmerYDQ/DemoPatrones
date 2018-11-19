@@ -5,21 +5,12 @@
  */
 package dao;
 
-import java.util.List;
 import modelo.Conductor;
 
 /**
  *
  * @author Diaz
  */
-public interface IConductorDAO {
-    public List<Conductor> getConductores();
-    
-    public Conductor getConductorId(int id);
-    
-    public void addConductor(Conductor conductor);
-    
-    public void deleteConductor(int id);
-    
-    public void updateConductor(Conductor conductor);
+public interface IConductorDAO extends IDAO<Conductor> {
+
 }

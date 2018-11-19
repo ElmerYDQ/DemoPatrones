@@ -3,15 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package service;
 
 import java.util.List;
-import modelo.Bus;
+import modelo.Conductor;
 
 /**
  *
  * @author Diaz
  */
-public interface IBusDAO extends IDAO<Bus> {
+public interface IService<T> {
+    public List<T> listar();
     
+    public T getId(int id);
+    
+    public void add(T t);
+    
+    public void delete(int id);
+    
+    public void update(T t);
 }

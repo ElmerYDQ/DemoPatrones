@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package daoimpl;
+package dao.impl;
 
 import conexion.ConexionSingleton;
-import dao.IHistorialDAO;
+import dao.IHistorialBusDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +19,7 @@ import modelo.HistorialBus;
  *
  * @author Diaz
  */
-public class HistorialBusDaoImpl<T> implements IHistorialDAO<T> {
+public class HistorialBusDaoImpl implements IHistorialBusDAO {
     private ConexionSingleton singleton = ConexionSingleton.getInstance();
     private Connection con = singleton.getConnection();
     
@@ -28,7 +28,7 @@ public class HistorialBusDaoImpl<T> implements IHistorialDAO<T> {
     private final String insert = "insert into historialbus (id_ruta, id_bus, fecha) values (?, ?, ?)";
     
     @Override
-    public List<T> getHistoriales() {
+    public List<HistorialBus> getHistoriales() {
         HistorialBus historialBus;
         List<HistorialBus> historialBuses = new ArrayList<>();
         PreparedStatement pstm = null;
@@ -46,11 +46,11 @@ public class HistorialBusDaoImpl<T> implements IHistorialDAO<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return (List<T>) historialBuses;
+        return historialBuses;
     }
 
     @Override
-    public T getHistorialId(int idRuta, int idBus) {
+    public HistorialBus getHistorialId(int idRuta, int idBus) {
         HistorialBus historialBus = new HistorialBus();
         PreparedStatement pstm = null;
         ResultSet rs =  null;
@@ -66,11 +66,11 @@ public class HistorialBusDaoImpl<T> implements IHistorialDAO<T> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return (T) historialBus;
+        return historialBus;
     }
 
     @Override
-    public void addHistorial(T historial) {
+    public void addHistorial(HistorialBus historial) {
         HistorialBus historialBus = (HistorialBus) historial;
         PreparedStatement pstm = null;
         try {

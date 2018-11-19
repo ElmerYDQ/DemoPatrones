@@ -12,14 +12,8 @@ import modelo.Administrador;
  *
  * @author Diaz
  */
-public interface IAdministradorDAO {
-    public List<Administrador> getAdministradores();
+public interface IAdministradorDAO extends IDAO<Administrador >{
     
-    public Administrador getAdministradorId(int id);
+    public Administrador validarUsuario(String usuario, String contrasena);
     
-    public void addAdministrador(Administrador administrador);
-    
-    public void deleteAdministrador(int id);
-    
-    public void updateAdministrador(Administrador administrador);
 }
