@@ -7,7 +7,6 @@ package controlador;
 
 import facade.Facade;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -92,7 +91,6 @@ public class ServletParadero extends HttpServlet {
     
     protected void editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //paradero = (Paradero) clone.createBasicItem("paradero");
         
         int id = Integer.parseInt(request.getParameter("id"));
         int idAvenida = Integer.parseInt(request.getParameter("idAvenida"));

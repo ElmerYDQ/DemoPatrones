@@ -7,6 +7,7 @@ package controlador;
 
 import dao.IAdministradorDAO;
 import dao.impl.AdministradorDaoImpl;
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,6 +24,7 @@ import modelo.Administrador;
 @WebServlet(name = "ServletSesion", urlPatterns = {"/ServletSesion"})
 public class ServletSesion extends HttpServlet {
 
+    private Facade facade = new Facade();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,6 +51,7 @@ public class ServletSesion extends HttpServlet {
         IAdministradorDAO dao = new AdministradorDaoImpl();
         Administrador administrador = new Administrador();
         administrador = dao.validarUsuario(usuario, contrasena);
+        request.getSession().setAttribute("facade", facade);
         
         request.getSession().setAttribute("nombre", administrador.getNombre());
         response.sendRedirect("jsp/principal.jsp");

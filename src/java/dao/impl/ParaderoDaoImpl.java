@@ -107,7 +107,7 @@ public class ParaderoDaoImpl implements IParaderoDAO {
             pstm.setInt(1, paradero.getIdAvenida());
             pstm.setString(2, paradero.getNombre());
             pstm.setString(3, paradero.getDireccion());
-            pstm.setInt(8, paradero.getIdParadero());
+            pstm.setInt(4, paradero.getIdParadero());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

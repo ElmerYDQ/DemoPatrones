@@ -13,14 +13,25 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Editar Paradero</h1>
+        <h1>Registrar Paradero</h1>
         <form action="${pageContext.request.contextPath}/ServletParadero" method="post">
             <input type="hidden" name="accion" value="editar">
             <input type="hidden" name="id" value="${paradero.idParadero}">
+            <input type="hidden" name="idAvenida" value="${paradero.idAvenida}">
             <table>
                 <tr>
-                    <th>Nombres</th>
-                    <td><input type="text" name="nombre" value="${paradero.nombre}" readonly></td>
+                    <th>Nombre</th>
+                    <td><input type="text" name="nombre" value="${paradero.nombre}"></td>
+                </tr>
+                <tr>
+                    <th>Avenida</th>
+                    <td>
+                        <input type="text" name="Avenida" value="${facade.getNombreAvenida(paradero.idAvenida)}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Direccion</th>
+                    <td><input type="text" name="direccion" value="${paradero.direccion}" readonly></td>
                 </tr>
             </table>
             <input type="submit" value="Editar">
