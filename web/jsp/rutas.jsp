@@ -49,7 +49,7 @@
                     <td>
                         <form method="post" action="${pageContext.request.contextPath}/ServletRutaParadero">
                             <input type="hidden" name="accion" value="listar">
-                            <input type="hidden" name="id" value="${ruta.idRuta}">
+                            <input type="hidden" name="idRuta" value="${ruta.idRuta}">
                             <input type="submit" value="Paraderos">
                         </form>
                     </td>

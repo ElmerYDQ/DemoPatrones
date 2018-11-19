@@ -13,9 +13,25 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Ruat de paraderos</h1>
+        <h1>Ruat de paraderos ${idRuta}</h1>
         <div>
-            <a href="jsp/registrarRutaParadero.jsp">Registrar</a>
+            <form action="${pageContext.request.contextPath}/ServletRutaParadero" method="post">
+                <input type="hidden" name="accion" value="registrar">
+                <input type="hidden" name="idRuta" value="${idRuta}">
+                <table>
+                    <tr>
+                        <th>Paradero</th>
+                        <td>
+                            <select name="idParadero">
+                                <c:forEach items="${facade.listarParadero()}" var="paradero">
+                                    <option value="${paradero.idParadero}">${paradero.nombre}</option>
+                                </c:forEach>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="Registrar">
+            </form>
         </div>
         <table>
             <tr>
@@ -40,7 +56,8 @@
                     <td>
                         <form method="post" action="${pageContext.request.contextPath}/ServletRutaParadero">
                             <input type="hidden" name="accion" value="eliminar">
-                            <input type="hidden" name="id" value="${facade.getParadero(paradero.idParadero).idParadero}">
+                            <input type="hidden" name="idRuta" value="${paradero.idRuta}">
+                            <input type="hidden" name="idParadero" value="${paradero.idParadero}">
                             <input type="submit" value="Eliminar">
                         </form>
                     </td>
