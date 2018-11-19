@@ -33,14 +33,14 @@
                     <td>${avenida.idAvenida}</td>
                     <td>${avenida.nombre}</td>
                     <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletBus">
+                        <form method="post" action="${pageContext.request.contextPath}/ServletAvenida">
                             <input type="hidden" name="accion" value="obtener">
                             <input type="hidden" name="id" value="${avenida.idAvenida}">
                             <input type="submit" value="Editar">
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletBus">
+                        <form method="post" action="${pageContext.request.contextPath}/ServletAvenida">
                             <input type="hidden" name="accion" value="eliminar">
                             <input type="hidden" name="id" value="${avenida.idAvenida}">
                             <input type="submit" value="Eliminar">

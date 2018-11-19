@@ -5,9 +5,7 @@
  */
 package controlador;
 
-import facade.Facade;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,14 +69,17 @@ public class ServletAvenida extends HttpServlet {
         avenida.setNombre(nombre);
         
         service.add(avenida);
+        
         response.sendRedirect(request.getContextPath()+"/ServletAvenida?accion=listar");
-        //request.getRequestDispatcher("jsp/avenidaes.jsp").forward(request, response);
     }
     
     protected void obtener(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         int id = Integer.parseInt(request.getParameter("id"));
+        
         request.getSession().setAttribute("avenida", service.getId(id));
+        
         request.getRequestDispatcher("jsp/editarAvenida.jsp").forward(request, response);
         
     }
@@ -86,11 +87,14 @@ public class ServletAvenida extends HttpServlet {
     protected void editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         
+        avenida.setIdAvenida(id);
         avenida.setNombre(nombre);
         
         service.update(avenida);
+        
         response.sendRedirect(request.getContextPath()+"/ServletAvenida?accion=listar");
         
     }

@@ -5,8 +5,6 @@
  */
 package controlador;
 
-import dao.IConductorDAO;
-import dao.impl.ConductorDaoImpl;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -14,9 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Administrador;
 import modelo.Conductor;
-import modelo.Persona;
 import modelo.PersonaClone;
 import service.IConductorService;
 import service.impl.ConductorService;

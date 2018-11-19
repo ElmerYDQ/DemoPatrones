@@ -13,6 +13,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Editar Avenida</h1>
+        <form action="${pageContext.request.contextPath}/ServletAvenida" method="post">
+            <input type="hidden" name="accion" value="editar">
+            <input type="hidden" name="id" value="${avenida.idAvenida}">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <td><input type="text" name="nombre" value="${avenida.nombre}"></td>
+                </tr>
+            </table>
+            <input type="submit" value="Editar">
+        </form>
     </body>
 </html>
