@@ -95,12 +95,14 @@ public class ServletBus extends HttpServlet {
     protected void editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        int id = Integer.parseInt(request.getParameter("id"));
         int idEstado = Integer.parseInt(request.getParameter("idEstado"));
         String placa = request.getParameter("placa");
         String soat = request.getParameter("soat");
         int capacidad = Integer.parseInt(request.getParameter("capacidad"));
         int anho = Integer.parseInt(request.getParameter("anho"));
         
+        bus.setIdBus(id);
         bus.setIdEstado(idEstado);
         bus.setPlaca(placa);
         bus.setSoat(soat);

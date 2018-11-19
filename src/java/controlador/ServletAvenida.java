@@ -5,13 +5,18 @@
  */
 package controlador;
 
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Avenida;
+import service.IAvenidaService;
+import service.impl.AvenidaService;
 
 /**
  *
@@ -20,6 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ServletAvenida", urlPatterns = {"/ServletAvenida"})
 public class ServletAvenida extends HttpServlet {
 
+    private IAvenidaService service = new AvenidaService();
+    private Avenida avenida = new Avenida();
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,19 +39,69 @@ public class ServletAvenida extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletAvenida</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletAvenida at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String accion = request.getParameter("accion");
+        
+        if(accion.equals("listar")) {
+            this.listar(request, response);
+        } else if(accion.equals("registrar")) {
+            this.registrar(request, response);
+        } else if(accion.equals("obtener")) {
+            this.obtener(request, response);
+        } else if(accion.equals("editar")) {
+            this.editar(request, response);
+        } else if(accion.equals("eliminar")) {
+            this.eliminar(request, response);
         }
+    }
+    
+    protected void listar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        List<Avenida> avenidas = service.listar();
+        request.getSession().setAttribute("avenidas", avenidas);
+        request.getRequestDispatcher("jsp/avenidas.jsp").forward(request, response);
+        
+    }
+    
+    protected void registrar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String nombre = request.getParameter("nombre");
+        
+        avenida.setNombre(nombre);
+        
+        service.add(avenida);
+        response.sendRedirect(request.getContextPath()+"/ServletAvenida?accion=listar");
+        //request.getRequestDispatcher("jsp/avenidaes.jsp").forward(request, response);
+    }
+    
+    protected void obtener(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        request.getSession().setAttribute("avenida", service.getId(id));
+        request.getRequestDispatcher("jsp/editarAvenida.jsp").forward(request, response);
+        
+    }
+    
+    protected void editar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        String nombre = request.getParameter("nombre");
+        
+        avenida.setNombre(nombre);
+        
+        service.update(avenida);
+        response.sendRedirect(request.getContextPath()+"/ServletAvenida?accion=listar");
+        
+    }
+    
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        service.delete(id);
+        response.sendRedirect(request.getContextPath()+"/ServletAvenida?accion=listar");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

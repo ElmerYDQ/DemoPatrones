@@ -37,6 +37,12 @@
                     <input type="submit" value="Ruta">
                 </form>
             </div>
+            <div>
+                <form action="${pageContext.request.contextPath}/ServletAvenida">
+                    <input type="hidden" name="accion" value="listar">
+                    <input type="submit" value="Avenida">
+                </form>
+            </div>
         </div>
     </body>
 </html>

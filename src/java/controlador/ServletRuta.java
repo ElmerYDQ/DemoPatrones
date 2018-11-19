@@ -5,13 +5,18 @@
  */
 package controlador;
 
+import facade.Facade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Ruta;
+import service.IRutaService;
+import service.impl.RutaService;
 
 /**
  *
@@ -19,6 +24,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ServletRuta", urlPatterns = {"/ServletRuta"})
 public class ServletRuta extends HttpServlet {
+
+    private IRutaService service = new RutaService();
+    private Ruta ruta = new Ruta();
+    private Facade facade = new Facade();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,19 +40,80 @@ public class ServletRuta extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletRuta</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletRuta at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String accion = request.getParameter("accion");
+
+        if (accion.equals("listar")) {
+            this.listar(request, response);
+        } else if (accion.equals("registrar")) {
+            this.registrar(request, response);
+        } else if (accion.equals("obtener")) {
+            this.obtener(request, response);
+        } else if (accion.equals("editar")) {
+            this.editar(request, response);
+        } else if (accion.equals("eliminar")) {
+            this.eliminar(request, response);
         }
+    }
+
+    protected void listar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        List<Ruta> rutas = service.listar();
+        request.getSession().setAttribute("rutas", rutas);
+        request.getSession().setAttribute("facade", facade);
+        request.getRequestDispatcher("jsp/rutas.jsp").forward(request, response);
+
+    }
+
+    protected void registrar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int idParaderoInicio = Integer.parseInt(request.getParameter("idParaderoInicio"));
+        int idParaderoFinal = Integer.parseInt(request.getParameter("idParaderoFinal"));
+        String nombre = request.getParameter("nombre");
+
+        ruta.setParaderoInicio(idParaderoInicio);
+        ruta.setParaderoFinal(idParaderoFinal);
+        ruta.setNombre(nombre);
+
+        service.add(ruta);
+        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
+        //request.getRequestDispatcher("jsp/rutaes.jsp").forward(request, response);
+    }
+
+    protected void obtener(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        request.getSession().setAttribute("ruta", service.getId(id));
+        request.getRequestDispatcher("jsp/editarRuta.jsp").forward(request, response);
+
+    }
+
+    protected void editar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        int idParaderoInicio = Integer.parseInt(request.getParameter("idParaderoInicio"));
+        int idParaderoFinal = Integer.parseInt(request.getParameter("idParaderoFinal"));
+        String nombre = request.getParameter("nombre");
+        
+        ruta.setIdRuta(id);
+        ruta.setParaderoInicio(idParaderoInicio);
+        ruta.setParaderoFinal(idParaderoFinal);
+        ruta.setNombre(nombre);
+
+        service.update(ruta);
+        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
+
+    }
+
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        service.delete(id);
+        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

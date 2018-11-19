@@ -5,6 +5,9 @@
  */
 package facade;
 
+import java.util.List;
+import modelo.EstadoBus;
+import modelo.Paradero;
 import service.*;
 import service.impl.*;
 
@@ -29,5 +32,17 @@ public class Facade {
     
     public String getEstado(int id) {
         return estado.getId(id).getNombre();
+    }
+    
+    public String getNombreParadero(int id) {
+        return paradero.getId(id).getNombre();
+    }
+    
+    public List<Paradero> listarParadero() {
+        return paradero.listar();
+    }
+    
+    public List<EstadoBus> listarEstado() {
+        return estado.listar();
     }
 }
