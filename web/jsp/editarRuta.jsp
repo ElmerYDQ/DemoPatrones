@@ -14,32 +14,23 @@
     </head>
     <body>
         <h1>Registrar ruta</h1>
-        <form action="${pageContext.request.contextPath}/Servletruta" method="post">
+        <form action="${pageContext.request.contextPath}/ServletRuta" method="post">
             <input type="hidden" name="accion" value="editar">
+            <input type="hidden" name="id" value="${ruta.idRuta}">
+            <input type="hidden" name="idParaderoInicio" value="${ruta.paraderoInicio}">
+            <input type="hidden" name="idParaderoFinal" value="${ruta.paraderoFinal}">
             <table>
                 <tr>
                     <th>Nombre</th>
-                    <td><input type="text" name="nombre"></td>
+                    <td><input type="text" name="nombre" value="${ruta.nombre}"></td>
                 </tr>
                 <tr>
                     <th>Paradero inicial</th>
-                    <td>
-                        <select name="idParaderoInicio">
-                            <c:forEach items="${facade.listarParadero()}" var="paradero">
-                                <option value="${paradero.idParadero}">${paradero.nombre}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
+                    <td><input type="text" name="paradero" value="${facade.getNombreParadero(ruta.paraderoInicio)}" readonly></td>
                 </tr>
                 <tr>
                     <th>Paradero final</th>
-                    <td>
-                        <select name="idParaderoFinal">
-                            <c:forEach items="${facade.listarParadero()}" var="paradero">
-                                <option value="${paradero.idParadero}">${paradero.nombre}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
+                    <td><input type="text" name="paradero" value="${facade.getNombreParadero(ruta.paraderoFinal)}" readonly></td>
                 </tr>
             </table>
             <input type="submit" value="Editar">

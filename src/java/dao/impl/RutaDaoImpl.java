@@ -28,7 +28,7 @@ public class RutaDaoImpl implements IRutaDAO {
     private final String selectId = "select * from ruta where id_ruta = ?";
     private final String insert = "insert into ruta (paradero_inicio, paradero_fin, nombre) values (?, ?, ?)";
     private final String delete = "delete from ruta where id_ruta = ?";
-    private final String update = "update ruta set paradero_inicio = ?, paradarero = ?, nombre = ? where id_ruta = ?";
+    private final String update = "update ruta set paradero_inicio = ?, paradero_fin = ?, nombre = ? where id_ruta = ?";
 
     @Override
     public List<Ruta> listar() {
