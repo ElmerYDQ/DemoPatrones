@@ -24,4 +24,6 @@ public interface IRutaParaderosService {
     public void delete(int idRuta, int idParadero);
     
     public void update(RutaParaderos rutaParaderos, int antiguo);
+    
+    public void deleteRuta(int idRuta);
 }

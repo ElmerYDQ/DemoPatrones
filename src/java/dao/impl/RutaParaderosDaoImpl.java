@@ -29,6 +29,7 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
     private final String insert = "insert into rutaParaderos (id_ruta, id_paradero) values (?, ?)";
     private final String delete = "delete from rutaParaderos where id_ruta = ? and id_paradero = ?";
     private final String update = "update rutaParaderos set id_paradero = ? where id_paradero = ?";
+    private final String deleteRuta = "delete from rutaParaderos where id_ruta = ?";
     
     @Override
     public List<RutaParaderos> listar() {
@@ -125,6 +126,18 @@ public class RutaParaderosDaoImpl implements IRutaParaderosDAO {
             pstm = con.prepareStatement(update);
             pstm.setInt(1, rutaParaderos.getIdParadero());
             pstm.setInt(2, antiguo);
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @Override
+    public void deleteRuta(int idRuta) {
+        PreparedStatement pstm = null;
+        try {
+            pstm = con.prepareStatement(delete);
+            pstm.setInt(1, idRuta);
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

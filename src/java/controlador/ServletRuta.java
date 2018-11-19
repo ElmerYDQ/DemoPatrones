@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Ruta;
+import service.IRutaParaderosService;
 import service.IRutaService;
+import service.impl.RutaParaderosService;
 import service.impl.RutaService;
 
 /**
@@ -26,6 +28,7 @@ import service.impl.RutaService;
 public class ServletRuta extends HttpServlet {
 
     private IRutaService service = new RutaService();
+    private IRutaParaderosService paraderos = new RutaParaderosService();
     private Ruta ruta = new Ruta();
     private Facade facade = new Facade();
 
@@ -111,7 +114,9 @@ public class ServletRuta extends HttpServlet {
             throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("id"));
+        paraderos.deleteRuta(id);
         service.delete(id);
+        
         response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
 
     }

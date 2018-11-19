@@ -4,6 +4,7 @@
     Author     : Diaz
 --%>
 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,36 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Registrar ruta</h1>
+        <form action="${pageContext.request.contextPath}/ServletRuta" method="post">
+            <input type="hidden" name="accion" value="registrar">
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <td><input type="text" name="nombre"></td>
+                </tr>
+                <tr>
+                    <th>Paradero inicial</th>
+                    <td>
+                        <select name="idParaderoInicio">
+                            <c:forEach items="${facade.listarParadero()}" var="paradero">
+                                <option value="${paradero.idParadero}">${paradero.nombre}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Paradero final</th>
+                    <td>
+                        <select name="idParaderoFinal">
+                            <c:forEach items="${facade.listarParadero()}" var="paradero">
+                                <option value="${paradero.idParadero}">${paradero.nombre}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Registrar">
+        </form>
     </body>
 </html>

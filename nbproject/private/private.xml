@@ -3,19 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Ruta.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/avenidas.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/registrarConductor.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/facade/Facade.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletBus.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/registrarBus.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletConductor.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/impl/EstadoBusDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/conductores.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/rutas.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletRuta.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletParadero.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletSesion.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/LeafRutaParadero.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/editarConductor.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/RutaParaderos.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/EstadoBus.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Administrador.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/HistorialConductor.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Persona.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Ruta.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Avenida.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/principal.jsp</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletConductor.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletAvenida.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/buses.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/editarBus.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/paraderos.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Conductor.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/LeafRutaParadero.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/RutaParaderos.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/editarAvenida.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/HistorialBus.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Paradero.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/principal/Principal.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/modelo/Bus.java</file>
         </group>
     </open-files>

@@ -49,4 +49,9 @@ public class RutaParaderosService implements IRutaParaderosService {
         dao.update(rutaParaderos, antiguo);
     }
     
+    @Override
+    public void deleteRuta(int idRuta) {
+        dao.deleteRuta(idRuta);
+    }
+    
 }
