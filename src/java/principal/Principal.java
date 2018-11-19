@@ -12,7 +12,12 @@ import dao.impl.ConductorDaoImpl;
 import java.util.List;
 import modelo.Administrador;
 import modelo.Conductor;
+import modelo.Paradero;
 import modelo.PersonaClone;
+import service.IConductorService;
+import service.IParaderoService;
+import service.impl.ConductorService;
+import service.impl.ParaderoService;
 
 /**
  *
@@ -20,6 +25,17 @@ import modelo.PersonaClone;
  */
 public class Principal {
     public static void main(String[] args) {
+        /*IConductorService service = new ConductorService();
+        PersonaClone clone = new PersonaClone();
+        Conductor conductor = (Conductor) clone.createBasicItem("conductor");
+        conductor = service.getId(7);
+        System.out.println(conductor.toString());
+        conductor.setDireccion("la");
+        service.update(conductor);*/
         
+        IParaderoService service = new ParaderoService();
+        for(Paradero paradero : service.listar()) {
+            System.out.println(paradero.toString());
+        }
     }
 }

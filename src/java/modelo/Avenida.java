@@ -5,11 +5,16 @@
  */
 package modelo;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  *
  * @author Diaz
  */
-public class Avenida {
+public class Avenida implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int idAvenida;
     private String nombre;
 
@@ -32,6 +37,35 @@ public class Avenida {
     @Override
     public String toString() {
         return "Avenida{" + "idAvenida=" + idAvenida + ", nombre=" + nombre + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.idAvenida;
+        hash = 59 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Avenida other = (Avenida) obj;
+        if (this.idAvenida != other.idAvenida) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
     }
     
 }

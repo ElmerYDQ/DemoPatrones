@@ -26,8 +26,8 @@
                 <th>Telefono</th>
                 <th>Direccion</th>
                 <th>Email</th>
-                <th></th>
-                <th></th>
+                <th>Editar</th>
+                <th>Eliminar</th>
             </tr>
             <c:forEach items="${conductores}" var="conductor">
                 <tr>
@@ -38,8 +38,20 @@
                     <td>${conductor.telefono}</td>
                     <td>${conductor.direccion}</td>
                     <td>${conductor.email}</td>
-                    <td><button value="Editar" ></button></td>
-                    <td><button value="Eliminar"></button></td>
+                    <td>
+                        <form method="post" action="${pageContext.request.contextPath}/ServletConductor">
+                            <input type="hidden" name="accion" value="obtener">
+                            <input type="hidden" name="id" value="${conductor.idConductor}">
+                            <input type="submit" value="Editar">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="${pageContext.request.contextPath}/ServletConductor">
+                            <input type="hidden" name="accion" value="eliminar">
+                            <input type="hidden" name="id" value="${conductor.idConductor}">
+                            <input type="submit" value="Eliminar">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

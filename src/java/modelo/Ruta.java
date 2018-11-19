@@ -5,11 +5,16 @@
  */
 package modelo;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  *
  * @author Diaz
  */
-public class Ruta {
+public class Ruta implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int idRuta;
     private int paraderoInicio;
     private int paraderoFinal;
@@ -50,6 +55,43 @@ public class Ruta {
     @Override
     public String toString() {
         return "Ruta{" + "idRuta=" + idRuta + ", paraderoInicio=" + paraderoInicio + ", paraderoFinal=" + paraderoFinal + ", nombre=" + nombre + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.idRuta;
+        hash = 97 * hash + this.paraderoInicio;
+        hash = 97 * hash + this.paraderoFinal;
+        hash = 97 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ruta other = (Ruta) obj;
+        if (this.idRuta != other.idRuta) {
+            return false;
+        }
+        if (this.paraderoInicio != other.paraderoInicio) {
+            return false;
+        }
+        if (this.paraderoFinal != other.paraderoFinal) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
     }
     
 }

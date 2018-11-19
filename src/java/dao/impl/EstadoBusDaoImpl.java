@@ -24,10 +24,10 @@ public class EstadoBusDaoImpl implements IEstadoBusDAO {
     private Connection con = singleton.getConnection();
     
     private final String select = "select * from estado_bus";
-    private final String selectId = "select * from estado where id_estado = ?";
-    private final String insert = "insert into estado (nombre) values (?)";
-    private final String delete = "delete from estado where id_estado = ?";
-    private final String update = "update estado set nombre = ? where id_estado = ?";
+    private final String selectId = "select * from estado_bus where id_estado = ?";
+    private final String insert = "insert into estado_bus (nombre) values (?)";
+    private final String delete = "delete from estado_bus where id_estado = ?";
+    private final String update = "update estado_bus set nombre = ? where id_estado = ?";
     
     @Override
     public List<EstadoBus> listar() {
