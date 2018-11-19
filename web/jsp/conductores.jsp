@@ -52,13 +52,6 @@
                             <input type="submit" value="Eliminar">
                         </form>
                     </td>
-                    <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletConductor">
-                            <input type="hidden" name="accion" value="eliminar">
-                            <input type="hidden" name="id" value="${conductor.idConductor}">
-                            <input type="submit" value="Eliminar">
-                        </form>
-                    </td>
                 </tr>
             </c:forEach>
         </table>

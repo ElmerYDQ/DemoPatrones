@@ -65,7 +65,6 @@ public class ServletConductor extends HttpServlet {
     
     protected void registrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //conductor = (Conductor) clone.createBasicItem("conductor");
         
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
@@ -98,7 +97,6 @@ public class ServletConductor extends HttpServlet {
     
     protected void editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //conductor = (Conductor) clone.createBasicItem("conductor");
         
         int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");

@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <th>Brevete</th>
-                    <td><input type="text" name="brevete" value="${conductor.brevete}"></td>
+                    <td><input type="text" name="brevete" value="${conductor.brevete}" readonly></td>
                 </tr>
                 <tr>
                     <th>Telefono</th>
