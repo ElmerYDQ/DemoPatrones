@@ -43,13 +43,6 @@
                             <input type="submit" value="Editar">
                         </form>
                     </td>
-                    <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletBus">
-                            <input type="hidden" name="accion" value="eliminar">
-                            <input type="hidden" name="id" value="${bus.idBus}">
-                            <input type="submit" value="Eliminar">
-                        </form>
-                    </td>
                 </tr>
             </c:forEach>
         </table>
