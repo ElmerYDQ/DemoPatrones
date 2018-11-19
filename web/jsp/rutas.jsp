@@ -33,17 +33,24 @@
                     <td>${facade.getNombreParadero(ruta.paraderoInicio)}</td>
                     <td>${facade.getNombreParadero(ruta.paraderoFinal)}</td>
                     <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletBus">
+                        <form method="post" action="${pageContext.request.contextPath}/ServletRuta">
                             <input type="hidden" name="accion" value="obtener">
                             <input type="hidden" name="id" value="${ruta.idRuta}">
                             <input type="submit" value="Editar">
                         </form>
                     </td>
                     <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletBus">
+                        <form method="post" action="${pageContext.request.contextPath}/ServletRuta">
                             <input type="hidden" name="accion" value="eliminar">
                             <input type="hidden" name="id" value="${ruta.idRuta}">
                             <input type="submit" value="Eliminar">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="${pageContext.request.contextPath}/ServletRutaParadero">
+                            <input type="hidden" name="accion" value="listar">
+                            <input type="hidden" name="id" value="${ruta.idRuta}">
+                            <input type="submit" value="Paraderos">
                         </form>
                     </td>
                 </tr>

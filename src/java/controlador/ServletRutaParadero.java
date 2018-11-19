@@ -14,23 +14,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Ruta;
 import modelo.RutaParaderos;
 import service.IRutaParaderosService;
-import service.IRutaService;
+import service.IRutaParaderosService;
 import service.impl.RutaParaderosService;
-import service.impl.RutaService;
+import service.impl.RutaParaderosService;
 
 /**
  *
  * @author Diaz
  */
-@WebServlet(name = "ServletRuta", urlPatterns = {"/ServletRuta"})
-public class ServletRuta extends HttpServlet {
+@WebServlet(name = "ServletRutaParadero", urlPatterns = {"/ServletRutaParadero"})
+public class ServletRutaParadero extends HttpServlet {
 
-    private IRutaService service = new RutaService();
-    private IRutaParaderosService paraderos = new RutaParaderosService();
-    private Ruta ruta = new Ruta();
+    private IRutaParaderosService service = new RutaParaderosService();
+    private RutaParaderos rutaParaderos = new RutaParaderos();
     private Facade facade = new Facade();
 
     /**
@@ -61,64 +59,66 @@ public class ServletRuta extends HttpServlet {
 
     protected void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        List<Ruta> rutas = service.listar();
-        request.getSession().setAttribute("rutas", rutas);
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        List<RutaParaderos> rutaParaderos = service.getRutaParaderosRuta(id);
+        request.getSession().setAttribute("rutaParaderos", rutaParaderos);
         request.getSession().setAttribute("facade", facade);
-        request.getRequestDispatcher("jsp/rutas.jsp").forward(request, response);
+        request.getRequestDispatcher("jsp/rutaParaderos.jsp").forward(request, response);
 
     }
 
     protected void registrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int idParaderoInicio = Integer.parseInt(request.getParameter("idParaderoInicio"));
+        /*int idParaderoInicio = Integer.parseInt(request.getParameter("idParaderoInicio"));
         int idParaderoFinal = Integer.parseInt(request.getParameter("idParaderoFinal"));
         String nombre = request.getParameter("nombre");
 
-        ruta.setParaderoInicio(idParaderoInicio);
-        ruta.setParaderoFinal(idParaderoFinal);
-        ruta.setNombre(nombre);
+        rutaParaderos.setParaderoInicio(idParaderoInicio);
+        rutaParaderos.setParaderoFinal(idParaderoFinal);
+        rutaParaderos.setNombre(nombre);
 
-        service.add(ruta);
-        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
-        //request.getRequestDispatcher("jsp/rutaes.jsp").forward(request, response);
+        service.add(rutaParaderos);
+        response.sendRedirect(request.getContextPath() + "/ServletRutaParaderos?accion=listar");*/
+        //request.getRequestDispatcher("jsp/rutaParaderoses.jsp").forward(request, response);
     }
 
     protected void obtener(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        request.getSession().setAttribute("ruta", service.getId(id));
-        request.getRequestDispatcher("jsp/editarRuta.jsp").forward(request, response);
+        /*int id = Integer.parseInt(request.getParameter("id"));
+        request.getSession().setAttribute("rutaParaderos", service.getId(id));
+        request.getRequestDispatcher("jsp/editarRutaParaderos.jsp").forward(request, response);*/
 
     }
 
     protected void editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        /*int id = Integer.parseInt(request.getParameter("id"));
         int idParaderoInicio = Integer.parseInt(request.getParameter("idParaderoInicio"));
         int idParaderoFinal = Integer.parseInt(request.getParameter("idParaderoFinal"));
         String nombre = request.getParameter("nombre");
         
-        ruta.setIdRuta(id);
-        ruta.setParaderoInicio(idParaderoInicio);
-        ruta.setParaderoFinal(idParaderoFinal);
-        ruta.setNombre(nombre);
+        rutaParaderos.setIdRutaParaderos(id);
+        rutaParaderos.setParaderoInicio(idParaderoInicio);
+        rutaParaderos.setParaderoFinal(idParaderoFinal);
+        rutaParaderos.setNombre(nombre);
 
-        service.update(ruta);
-        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
+        service.update(rutaParaderos);
+        response.sendRedirect(request.getContextPath() + "/ServletRutaParaderos?accion=listar");*/
 
     }
 
     protected void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        paraderos.deleteRuta(id);
+        /*int id = Integer.parseInt(request.getParameter("id"));
+        paraderos.deleteRutaParaderos(id);
         service.delete(id);
         
-        response.sendRedirect(request.getContextPath() + "/ServletRuta?accion=listar");
+        response.sendRedirect(request.getContextPath() + "/ServletRutaParaderos?accion=listar");*/
 
     }
 
