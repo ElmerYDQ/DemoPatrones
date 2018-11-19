@@ -115,7 +115,7 @@ public class BusDaoImpl implements IBusDAO {
             pstm.setString(3, bus.getSoat());
             pstm.setInt(4, bus.getCapacidad());
             pstm.setInt(5, bus.getAnho());
-            pstm.setInt(8, bus.getIdBus());
+            pstm.setInt(6, bus.getIdBus());
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

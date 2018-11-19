@@ -15,7 +15,7 @@
     <body>
         <h1>Editar bus</h1>
         <form action="${pageContext.request.contextPath}/ServletBus" method="post">
-            <input type="hidden" name="accion" value="registrar">
+            <input type="hidden" name="accion" value="editar">
             <input type="hidden" name="id" value="${bus.idBus}">
             <table>
                 <tr>
@@ -28,16 +28,16 @@
                 </tr>
                 <tr>
                     <th>Capacidad</th>
-                    <td><input type="text" name="capacidad"></td>
+                    <td><input type="text" name="capacidad" value="${bus.capacidad}" readonly></td>
                 </tr>
                 <tr>
                     <th>Año</th>
-                    <td><input type="text" name="anho"></td>
+                    <td><input type="text" name="anho" value="${bus.anho}" readonly></td>
                 </tr>
                 <tr>
                     <th>Estado</th>
                     <td>
-                        <select>
+                        <select name="idEstado">
                             <c:forEach items="${facade.listarEstado()}" var="estado">
                                 <option value="${estado.idEstado}">${estado.nombre}</option>
                             </c:forEach>

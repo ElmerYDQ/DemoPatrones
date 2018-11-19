@@ -110,6 +110,7 @@ public class ServletBus extends HttpServlet {
         bus.setAnho(anho);
         
         service.update(bus);
+        
         response.sendRedirect(request.getContextPath()+"/ServletBus?accion=listar");
         
     }

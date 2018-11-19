@@ -26,7 +26,6 @@
                 <th>Capacidad</th>
                 <th>Año</th>
                 <th>Editar</th>
-                <th>Eliminar</th>
             </tr>
             <c:forEach items="${buses}" var="bus">
                 <tr>

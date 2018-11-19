@@ -36,7 +36,7 @@
                 <tr>
                     <th>Estado</th>
                     <td>
-                        <select>
+                        <select name="idEstado">
                             <c:forEach items="${facade.listarEstado()}" var="estado">
                                 <option value="${estado.idEstado}">${estado.nombre}</option>
                             </c:forEach>
