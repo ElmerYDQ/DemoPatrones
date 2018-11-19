@@ -38,7 +38,6 @@
                 <th>Nombre</th>
                 <th>Avenida</th>
                 <th>Direccion</th>
-                <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
             <c:forEach items="${rutaParaderos}" var="paradero">
@@ -46,13 +45,6 @@
                     <td>${facade.getParadero(paradero.idParadero).nombre}</td>
                     <td>${facade.getNombreAvenida(facade.getParadero(paradero.idParadero).idAvenida)}</td>
                     <td>${facade.getParadero(paradero.idParadero).direccion}</td>
-                    <td>
-                        <form method="post" action="${pageContext.request.contextPath}/ServletRutaParadero">
-                            <input type="hidden" name="accion" value="obtener">
-                            <input type="hidden" name="id" value="${facade.getParadero(paradero.idParadero).idParadero}">
-                            <input type="submit" value="Editar">
-                        </form>
-                    </td>
                     <td>
                         <form method="post" action="${pageContext.request.contextPath}/ServletRutaParadero">
                             <input type="hidden" name="accion" value="eliminar">
