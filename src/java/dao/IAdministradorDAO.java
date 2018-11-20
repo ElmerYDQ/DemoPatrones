@@ -12,7 +12,7 @@ import modelo.Administrador;
  *
  * @author Diaz
  */
-public interface IAdministradorDAO extends IDAO<Administrador >{
+public interface IAdministradorDAO extends IDAO<Administrador>{
     
     public Administrador validarUsuario(String usuario, String contrasena);
     

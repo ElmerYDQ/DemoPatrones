@@ -73,10 +73,11 @@ public class ServletAsignacion extends HttpServlet {
         int idRuta = Integer.parseInt(request.getParameter("idRuta"));
         int idBus = Integer.parseInt(request.getParameter("idBus"));
         Date fecha = new Date();
+        
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         listaBus.setIdRuta(idRuta);
         listaBus.setIdBus(idBus);
-        listaBus.setFecha((java.sql.Date) fecha);
+        listaBus.setFecha(new java.sql.Date(fecha.getTime()));
         
         historialBus.addHistorial(listaBus);
         
