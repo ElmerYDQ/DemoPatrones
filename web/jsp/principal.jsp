@@ -44,9 +44,6 @@
                     <input type="submit" value="Avenida">
                 </form>
             </div>
-            <div>
-                <a href="asignacion.jsp"><input type="button" value="Asignar"></a>
-            </div>
         </div>
     </body>
 </html>
