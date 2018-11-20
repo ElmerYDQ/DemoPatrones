@@ -13,9 +13,7 @@ import modelo.Conductor;
  *
  * @author Diaz
  */
-public interface ICriteria {
+public interface ICriteria<T> {
     
-    public List<Bus> filtrarBus();
-    
-    public List<Conductor> filtrarConductor();
+    public List<T> filtrar(List<T> lista, int id);
 }

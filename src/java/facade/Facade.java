@@ -7,6 +7,7 @@ package facade;
 
 import java.util.List;
 import modelo.Avenida;
+import modelo.Bus;
 import modelo.EstadoBus;
 import modelo.Paradero;
 import modelo.RutaParaderos;
@@ -22,12 +23,14 @@ public class Facade {
     private IParaderoService paradero;
     private IEstadoBusService estado;
     private IRutaParaderosService rutaParadero;
+    private IBusService bus;
     
     public Facade() {
         avenida = new AvenidaService();
         paradero = new ParaderoService();
         estado = new EstadoBusService();
         rutaParadero = new RutaParaderosService();
+        bus = new BusService();
     }
     
     public String getNombreAvenida(int id) {
@@ -52,6 +55,14 @@ public class Facade {
     
     public List<Avenida> listarAvenida() {
         return avenida.listar();
+    }
+    
+    public List<Bus> listarBus() {
+        return bus.listar();
+    }
+    
+    public Bus getBus(int id) {
+        return bus.getId(id);
     }
     
     public List<RutaParaderos> getRutaParaderosRuta(int id) {

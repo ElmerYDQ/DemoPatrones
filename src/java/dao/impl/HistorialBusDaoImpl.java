@@ -8,6 +8,7 @@ package dao.impl;
 import conexion.ConexionSingleton;
 import dao.IHistorialBusDAO;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

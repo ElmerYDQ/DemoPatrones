@@ -8,20 +8,16 @@ package criteria;
 import java.util.List;
 import modelo.Bus;
 import modelo.Conductor;
+import modelo.HistorialBus;
 
 /**
  *
  * @author Diaz
  */
-public class AndCriteria implements ICriteria {
+public class AndCriteria implements ICriteria<Bus> {
 
     @Override
-    public List<Bus> filtrarBus() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Conductor> filtrarConductor() {
+    public List<Bus> filtrar(List<Bus> lista,int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

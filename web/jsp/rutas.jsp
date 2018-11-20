@@ -53,6 +53,13 @@
                             <input type="submit" value="Paraderos">
                         </form>
                     </td>
+                    <td>
+                        <form method="post" action="${pageContext.request.contextPath}/ServletAsignacion">
+                            <input type="hidden" name="accion" value="listarBuses">
+                            <input type="hidden" name="idRuta" value="${ruta.idRuta}">
+                            <input type="submit" value="Buses">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
