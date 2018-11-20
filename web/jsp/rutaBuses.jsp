@@ -42,10 +42,10 @@
             </tr>
             <c:forEach items="${listaHistorial}" var="historial">
                 <tr>
-                    <td>${facade.getParadero(historial.idBus).placa}</td>
-                    <td>${facade.getParadero(historial.idBus).soat}</td>
-                    <td>${facade.getParadero(historial.idBus).capacidad}</td>
-                    <td>${facade.getParadero(historial.idBus).anho}</td>
+                    <td>${facade.getBus(historial.idBus).placa}</td>
+                    <td>${facade.getBus(historial.idBus).soat}</td>
+                    <td>${facade.getBus(historial.idBus).capacidad}</td>
+                    <td>${facade.getBus(historial.idBus).anho}</td>
                     <td>${historial.fecha}</td>
                 </tr>
             </c:forEach>
