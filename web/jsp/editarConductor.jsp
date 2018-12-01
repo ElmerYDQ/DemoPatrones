@@ -11,43 +11,47 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     </head>
-    <body>
+    <body style="text-align: center">
         <h1>Editar conductor</h1>
+        <hr>
         <form action="${pageContext.request.contextPath}/ServletConductor" method="post">
             <input type="hidden" name="accion" value="editar">
             <input type="hidden" name="id" value="${conductor.idConductor}">
-            <table>
-                <tr>
-                    <th>Nombres</th>
-                    <td><input type="text" name="nombre" value="${conductor.nombre}" readonly></td>
-                </tr>
-                <tr>
-                    <th>Apellidos</th>
-                    <td><input type="text" name="apellido" value="${conductor.apellido}" readonly></td>
-                </tr>
-                <tr>
-                    <th>DNI</th>
-                    <td><input type="text" name="dni" value="${conductor.dni}" readonly></td>
-                </tr>
-                <tr>
-                    <th>Brevete</th>
-                    <td><input type="text" name="brevete" value="${conductor.brevete}" readonly></td>
-                </tr>
-                <tr>
-                    <th>Telefono</th>
-                    <td><input type="text" name="telefono" value="${conductor.telefono}"></td>
-                </tr>
-                <tr>
-                    <th>Direccion</th>
-                    <td><input type="text" name="direccion" value="${conductor.direccion}"></td>
-                </tr>
-                <tr>
-                    <th>Email</th>
-                    <td><input type="email" name="email" value="${conductor.email}"></td>
-                </tr>
-            </table>
-            <input type="submit" value="Editar">
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">Nombres:</h5>
+                <input type="text" class="form-control col-sm-8" name="nombre" value="${conductor.nombre}" readonly>
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">Apellidos:</h5>
+                <input type="text" class="form-control col-sm-8" name="apellido" value="${conductor.apellido}" readonly>
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">DNI:</h5>
+                <input type="text" class="form-control col-sm-8" name="dni" value="${conductor.dni}" readonly>
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">Brevete:</h5>
+                <input type="text" class="form-control col-sm-8" name="brevete" value="${conductor.brevete}" readonly>
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">Teléfono:</h5>
+                <input type="text" class="form-control col-sm-8" name="telefono" value="${conductor.telefono}">
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">Dirección:</h5>
+                <input type="text" class="form-control col-sm-8" name="direccion" value="${conductor.direccion}">
+            </div>
+            <div class="form-group row">
+                <h5 class="col-sm-2 col-form-label">E-mail</h5>
+                <input class="form-control col-sm-8" type="email" name="email" value="${conductor.email}">
+            </div>
+            <input type="submit" value="Editar" class="btn btn-success">
         </form>
     </body>
 </html>
