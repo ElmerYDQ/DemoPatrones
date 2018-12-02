@@ -18,6 +18,7 @@
 
     </head>
     <body style="text-align:center">
+        <jsp:include page="../componente/header.jsp"></jsp:include>
         <h1>Avenidas</h1>
         <hr>
         <div>

@@ -18,7 +18,8 @@
 
     </head>
     <body style="text-align: center">
-        <h1>Ruat de paraderos ${idRuta}</h1>
+        <jsp:include page="../componente/header.jsp"></jsp:include>
+        <h1>Ruta de paraderos ${idRuta}</h1>
         <hr>
         <div>
             <form action="${pageContext.request.contextPath}/ServletRutaParadero" method="post">

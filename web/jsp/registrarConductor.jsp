@@ -18,6 +18,7 @@
 
     </head>
     <body style="text-align: center">
+        <jsp:include page="../componente/header.jsp"></jsp:include>
         <h1>Registrar conductor</h1>
         <form action="${pageContext.request.contextPath}/ServletConductor" method="post">
             <input type="hidden" name="accion" value="registrar">

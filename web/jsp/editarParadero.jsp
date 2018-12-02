@@ -18,6 +18,7 @@
 
     </head>
     <body style="text-align: center">
+        <jsp:include page="../componente/header.jsp"></jsp:include>
         <h1>Registrar Paradero</h1>
         <hr>
         <form action="${pageContext.request.contextPath}/ServletParadero" method="post">

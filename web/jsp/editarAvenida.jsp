@@ -18,6 +18,7 @@
 
     </head>
     <body style="text-align:center">
+        <jsp:include page="../componente/header.jsp"></jsp:include>
         <h1>Editar Avenida</h1>
         <form action="${pageContext.request.contextPath}/ServletAvenida" method="post">
             <input type="hidden" name="accion" value="editar">

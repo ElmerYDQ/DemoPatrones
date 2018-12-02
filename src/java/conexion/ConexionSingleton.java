@@ -21,7 +21,7 @@ public class ConexionSingleton {
     private ConexionSingleton() {
         try {
             DriverManager.registerDriver(new Driver());
-            _connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/demopatrones?useSSL=false", "root", "");
+            _connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/demopatrones?useSSL=false", "root", "admin");
         } catch (SQLException e) {
             System.out.println("Error al registrar el controlador" + e.getMessage());
         }
