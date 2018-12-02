@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.HistorialBus;
 import modelo.HistorialConductor;
+import service.IHistorialBusService;
 
 /**
  *
@@ -31,8 +32,8 @@ import modelo.HistorialConductor;
 public class ServletAsignacion extends HttpServlet {
     
     private FactoriaDAO factoria = new FactoriaDAO();
-    private IHistorialBusDAO historialBus = (IHistorialBusDAO) factoria.getHistorialDAO("bus");
-    private IHistorialConductorDAO historialConductor = (IHistorialConductorDAO) factoria.getHistorialDAO("conductor");
+    private IHistorialBusService historialBus = (IHistorialBusService) factoria.getHistorialDAO("bus");
+    //private IHistorialConductorDAO historialConductor = (IHistorialConductorDAO) factoria.getHistorialDAO("conductor");
     
     private HistorialBus listaBus = new HistorialBus();
     private HistorialConductor listaConductor = new HistorialConductor();

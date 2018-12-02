@@ -31,7 +31,7 @@
             <div class="form-group row">
                 <h5 class="col-sm-2 col-form-label">Bus:</h5>
                 <select class="form-control col-sm-8" id="sel1" name="idBus">
-                    <c:forEach items="${facade.listarBus()}" var="bus">
+                    <c:forEach items="${facade.listarBusFiltrado()}" var="bus">
                         <option value="${bus.idBus}">${bus.placa}</option>
                     </c:forEach>
                 </select>
