@@ -16,10 +16,16 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
               crossorigin="anonymous">
+        <link rel="stylesheet" href="css/login.css" type="text/css" />
+        <script src="js/app.js"></script>
+        
     </head>
     <body style="text-align:center">
+       <div class="header_login col-xs-12">
         <h1>SISTEMA DE TRANSPORTE EN LIMA METROPOLITANA</h1>
-        <hr>
+       </div> 
+  
+      <div class="contenedor_login col-xs-12">
         <div class="container">
             <div class="d-flex justify-content-center h-100">
                 <div class="card">
@@ -41,7 +47,7 @@
                                     <input type="password" class="form-control" name="contraseña" placeholder="Clave">
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Ingresar" class="btn btn-success">
+                                    <input type="submit" value="Ingresar" class="btn btn-info">
                                 </div>
                             </form>
                         </div>
@@ -49,5 +55,6 @@
                 </div>
             </div>
         </div>
+      </div>
     </body>
 </html>

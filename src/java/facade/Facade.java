@@ -5,10 +5,13 @@
  */
 package facade;
 
+import dao.impl.FactoriaDAO;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Avenida;
 import modelo.Bus;
 import modelo.EstadoBus;
+import modelo.HistorialBus;
 import modelo.Paradero;
 import modelo.RutaParaderos;
 import service.*;
@@ -19,11 +22,13 @@ import service.impl.*;
  * @author Diaz
  */
 public class Facade {
+    private FactoriaDAO factoria = new FactoriaDAO();
     private IAvenidaService avenida;
     private IParaderoService paradero;
     private IEstadoBusService estado;
     private IRutaParaderosService rutaParadero;
     private IBusService bus;
+    private IHistorialBusService historialBus;
     
     public Facade() {
         avenida = new AvenidaService();
@@ -31,6 +36,7 @@ public class Facade {
         estado = new EstadoBusService();
         rutaParadero = new RutaParaderosService();
         bus = new BusService();
+        historialBus = (IHistorialBusService) factoria.getHistorialDAO("bus");
     }
     
     public String getNombreAvenida(int id) {
@@ -59,6 +65,22 @@ public class Facade {
     
     public List<Bus> listarBus() {
         return bus.listar();
+    }
+    
+    public List<Bus> listarBusFiltrado() {
+        List<Bus> buses = bus.listar();
+        List<HistorialBus> historial = historialBus.getHistoriales();
+        List<Bus> lista = new ArrayList<>();
+        List<Integer> valores = new ArrayList<>();
+        for(HistorialBus h : historial) {
+            valores.add(h.getIdBus());
+        }
+        for(Bus b : buses) {
+            if(!valores.contains(b.getIdBus())) {
+                lista.add(b);
+            }
+        }
+        return lista;
     }
     
     public Bus getBus(int id) {

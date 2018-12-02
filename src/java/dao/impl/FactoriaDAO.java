@@ -6,6 +6,9 @@
 package dao.impl;
 
 import dao.IHistorialDAO;
+import service.IHistorialService;
+import service.impl.HistorialBusService;
+import service.impl.HistorialConductorService;
 
 /**
  *
@@ -13,14 +16,14 @@ import dao.IHistorialDAO;
  */
 public class FactoriaDAO {
     
-    public IHistorialDAO getHistorialDAO(String historial){
+    public IHistorialService getHistorialDAO(String historial){
         if(historial == null) {
             return null;
         }
         if(historial.equals("bus")) {
-            return new HistorialBusDaoImpl();
+            return new HistorialBusService();
         } else if (historial.equals("conductor")) {
-            return new HistorialConductorDaoImpl();
+            return new HistorialConductorService();
         }
         return null;
     }

@@ -9,8 +9,10 @@ import dao.IAdministradorDAO;
 import dao.IConductorDAO;
 import dao.impl.AdministradorDaoImpl;
 import dao.impl.ConductorDaoImpl;
+import facade.Facade;
 import java.util.List;
 import modelo.Administrador;
+import modelo.Bus;
 import modelo.Conductor;
 import modelo.Paradero;
 import modelo.PersonaClone;
@@ -24,6 +26,7 @@ import service.impl.ParaderoService;
  * @author Diaz
  */
 public class Principal {
+
     public static void main(String[] args) {
         /*IConductorService service = new ConductorService();
         PersonaClone clone = new PersonaClone();
@@ -32,10 +35,18 @@ public class Principal {
         System.out.println(conductor.toString());
         conductor.setDireccion("la");
         service.update(conductor);*/
-        
+
         IParaderoService service = new ParaderoService();
-        for(Paradero paradero : service.listar()) {
+        for (Paradero paradero : service.listar()) {
             System.out.println(paradero.toString());
+        }
+
+        Facade facade = new Facade();
+        List<Bus> lista = facade.listarBusFiltrado();
+        if (!lista.isEmpty()) {
+            for (Bus b : lista) {
+                System.out.println(b.toString());
+            }
         }
     }
 }
