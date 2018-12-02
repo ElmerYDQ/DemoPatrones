@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="../css/login.css" type="text/css" /> 
+        <title>Sistema de Transporte</title> 
     </head>
     <body style="text-align:center">
-        <h1>SISTEMA DE TRANSPORTE EN LIMA METROPOLITANA</h1>
+        <div class="col-xs-12 header_general">
+            <h1>SISTEMA DE TRANSPORTE EN LIMA METROPOLITANA</h1>
+        </div>
+
     </body>
 </html>

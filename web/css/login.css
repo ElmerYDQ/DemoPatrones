@@ -1,0 +1,154 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/12/2018, 09:29:20 AM
+    Author     : BEJAR
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900');
+ 
+.header_general{
+    background: #FFB701;
+    padding: 20px 0px;
+    
+     font-family: 'Merriweather', serif;
+       text-align: center;
+          box-shadow: 0px 0px 10px black;
+}
+.header_general h1{
+    font-size: 2em;
+   
+}
+.titulo_conductor{
+    
+}
+
+.titulo_principal h1{
+   font-size: 1.9em;
+     font-family: 'Merriweather', serif; 
+      padding: 20px;
+      margin: 0px;
+      animation: traer 2s;
+
+}
+@keyframes traer{
+    0%{
+        transform:translateX(100%);
+    }
+    100%{
+         transform:translateX(0%);
+    }
+}
+.navegador_principal{
+    display: flex;
+    flex-direction: row;
+    background: rgba(14, 162, 157,0.7);
+    padding: 20px 0px;
+    animation: aparecer 2s;
+}
+.navegador_principal >div:nth-of-type(1){
+    margin-left: 20px;
+}
+.navegador_principal >div{
+    margin-left: 30px;
+ 
+    
+}
+
+.header_login{
+    background: rgba(255, 183, 1,0.8);
+    font-family: 'Merriweather', serif;
+    padding: 20px 0px;
+    box-shadow: 0px 0px 10px black;
+    animation: aparecer 2s;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.header_login h1{
+    font-size: 2.1em;
+    animation: aparecer 4s;
+}
+
+@keyframes aparecer{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}                     
+input:focus{
+    box-shadow: none !important;
+    border: none ;
+}
+
+.card{
+     font-family: 'Merriweather', serif;
+       background: rgba(255, 183, 1,0.6) ;
+       box-shadow:1px 1px 10px black;
+}
+.card-header{
+    background: none !important;
+}
+
+body{
+    background: rgba(250, 250, 250,0.9);
+}
+
+.contenedor_login .container{
+    margin-top: 100px;
+    animation: bajar 1.5s;
+}
+@keyframes bajar{
+    0%{
+        margin-top:50px;
+    }
+    100%{
+        margin-top:100px;
+    }
+}
+.body{
+    background-image: url("../recursos/fondo.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.card .btn{
+    margin-top: 20px;
+    background: #894825 !important;
+    transition: all 0.4s;
+}
+
+.card .btn:hover{
+    background: #535353 !important;
+    padding: 10px 20px;
+}
+
+
+
+
+.input-group-prepend .input-group-text:hover{
+      background: #535353 !important;
+}
+
+
+.input-group-prepend .input-group-text{
+    background: #894825;
+    border: none;
+    
+    transition: all 0.4s;
+}
+
+.input-group-prepend .input-group-text i{
+    color: #ffffff;
+}
+.card .input-group {
+    
+}
+
