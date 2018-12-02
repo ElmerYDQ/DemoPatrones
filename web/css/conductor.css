@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02/12/2018, 11:35:02 AM
+    Author     : BEJAR
+*/
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900');
+.conductor_registrar{
+   padding-bottom: 20px;
+}
+.seleccionar_paradero{
+    width: 60%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.titulo_conductor{
+    padding: 20px 0px;
+}
+.titulo_conductor h1{
+    font-family: 'Merriweather', serif;
+    margin: 0;
+}
+.titulo_registrar_conductor{
+    padding: 20px 0px;
+}
+
+.titulo_registrar_conductor h1{
+     font-family: 'Merriweather', serif;
+}
+.contenedor_form_registrar{
+    width: 50%;
+    margin: auto;
+    background: rgba(14, 162, 157,0.7);
+    padding: 40px 0px 30px 30px !important;
+    border-radius: 20px;
+}
+.encabezado{
+    background: #D9EDF7 !important;
+}
