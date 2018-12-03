@@ -1,4 +1,3 @@
-delete trigger if exists addRutaParadero
 create trigger addRutaParadero after insert on ruta
 for each row
 	insert into rutaparaderos (id_ruta, id_paradero) 

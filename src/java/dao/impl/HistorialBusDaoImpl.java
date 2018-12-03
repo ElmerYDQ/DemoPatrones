@@ -27,6 +27,7 @@ public class HistorialBusDaoImpl implements IHistorialBusDAO {
     private final String select = "select * from historialbus";
     private final String selectId = "select * from historialbus where id_ruta = ?, id_bus = ?";
     private final String insert = "insert into historialbus (id_ruta, id_bus, fecha) values (?, ?, ?)";
+    private final String delete = "delete from historialbus where id_ruta = ? and id_bus = ?";
     
     @Override
     public List<HistorialBus> getHistoriales() {
@@ -79,6 +80,19 @@ public class HistorialBusDaoImpl implements IHistorialBusDAO {
             pstm.setInt(1, historialBus.getIdRuta());
             pstm.setInt(2, historialBus.getIdBus());
             pstm.setDate(3, historialBus.getFecha());
+            pstm.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteHistorial(int id1, int id2) {
+        PreparedStatement pstm = null;
+        try {
+            pstm = con.prepareStatement(delete);
+            pstm.setInt(1, id1);
+            pstm.setInt(2, id2);
             pstm.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

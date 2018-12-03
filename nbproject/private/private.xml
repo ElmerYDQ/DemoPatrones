@@ -3,26 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/criteria/HistorialBusCriteria.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IHistorialBusDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/impl/HistorialConductorDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/registrarRuta.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/facade/Facade.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/index.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IHistorialDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/impl/HistorialBusDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/service/impl/HistorialConductorService.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/rutaBuses.jsp</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/registrarParaderos.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/IHistorialConductorDAO.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/impl/EstadoBusDaoImpl.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/service/impl/HistorialBusService.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/rutaParaderos.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/service/IHistorialService.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/dao/impl/FactoriaDAO.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/service/IHistorialBusService.java</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/registrarParaderos.jsp</file>
+            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/web/jsp/paraderos.jsp</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletAsignacion.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/controlador/ServletSesion.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/conexion/ConexionSingleton.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/criteria/AndCriteria.java</file>
             <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/principal/Principal.java</file>
-            <file>file:/C:/Users/Diaz/Documents/NetBeansProjects/Patrones/DemoPatrones/src/java/service/IHistorialConductorService.java</file>
-            <file>file:/C:/Users/BEJAR/Desktop/proyecto/DemoPatrones/web/js/app.js</file>
-            <file>file:/C:/Users/BEJAR/Desktop/proyecto/DemoPatrones/web/componente/header.jsp</file>
-            <file>file:/C:/Users/BEJAR/Desktop/proyecto/DemoPatrones/web/jsp/principal.jsp</file>
-            <file>file:/C:/Users/BEJAR/Desktop/proyecto/DemoPatrones/web/css/login.css</file>
         </group>
     </open-files>
 </project-private>

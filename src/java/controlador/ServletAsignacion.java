@@ -55,6 +55,8 @@ public class ServletAsignacion extends HttpServlet {
             this.listarBuses(request, response);
         } else if(accion.equals("registrarHistorialBus")) {
             this.registrarHistorialBus(request, response);
+        } else if(accion.equals("desasignarHistorialBus")) {
+            this.desasignarHistorialBus(request, response);
         }
     }
     
@@ -81,6 +83,19 @@ public class ServletAsignacion extends HttpServlet {
         listaBus.setFecha(new java.sql.Date(fecha.getTime()));
         
         historialBus.addHistorial(listaBus);
+        
+        response.sendRedirect(request.getContextPath() + "/ServletAsignacion?accion=listarBuses&idRuta="+idRuta);
+    }
+    
+    protected void desasignarHistorialBus(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idRuta = Integer.parseInt(request.getParameter("idRuta"));
+        int idBus = Integer.parseInt(request.getParameter("idBus"));
+        
+        listaBus.setIdRuta(idRuta);
+        listaBus.setIdBus(idBus);
+        
+        historialBus.deleteHistorial(idRuta, idBus);
         
         response.sendRedirect(request.getContextPath() + "/ServletAsignacion?accion=listarBuses&idRuta="+idRuta);
     }

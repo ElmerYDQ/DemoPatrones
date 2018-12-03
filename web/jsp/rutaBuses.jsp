@@ -46,6 +46,7 @@
                 <th>Capacidad</th>
                 <th>Año</th>
                 <th>Fecha</th>
+                <th>Desasignar</th>
             </tr>
             <c:forEach items="${listaHistorial}" var="historial">
                 <tr>
@@ -54,6 +55,14 @@
                     <td>${facade.getBus(historial.idBus).capacidad}</td>
                     <td>${facade.getBus(historial.idBus).anho}</td>
                     <td>${historial.fecha}</td>
+                    <td>
+                        <form action="${pageContext.request.contextPath}/ServletAsignacion" method="post">
+                            <input type="hidden" name="accion" value="desasignarHistorialBus">
+                            <input type="hidden" name="idBus" value="${historial.idBus}">
+                            <input type="hidden" name="idRuta" value="${historial.idRuta}">
+                            <input type="submit" value="Desasignar" class="btn btn-danger">
+                        </form>
+                    </td>
                 </tr>
             </c:forEach>
         </table>

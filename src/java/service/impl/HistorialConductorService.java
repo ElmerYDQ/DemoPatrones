@@ -33,5 +33,10 @@ public class HistorialConductorService implements IHistorialConductorService {
     public void addHistorial(HistorialConductor historial) {
         dao.addHistorial(historial);
     }
+
+    @Override
+    public void deleteHistorial(int id1, int id2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
 }

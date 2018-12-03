@@ -84,4 +84,9 @@ public class HistorialConductorDaoImpl implements IHistorialConductorDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void deleteHistorial(int id1, int id2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -55,6 +55,22 @@ public class Facade {
         return paradero.listar();
     }
     
+    public List<Paradero> listarParaderoFiltrado(int id) {
+        List<Paradero> paraderos = paradero.listar();
+        List<RutaParaderos> rutaParaderos = rutaParadero.getRutaParaderosRuta(id);
+        List<Paradero> lista = new ArrayList<>();
+        List<Integer> valores = new ArrayList<>();
+        for(RutaParaderos r : rutaParaderos) {
+            valores.add(r.getIdParadero());
+        }
+        for(Paradero p : paraderos) {
+            if(!valores.contains(p.getIdParadero())) {
+                lista.add(p);
+            }
+        }
+        return lista;
+    }
+    
     public List<EstadoBus> listarEstado() {
         return estado.listar();
     }

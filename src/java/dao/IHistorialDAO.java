@@ -18,4 +18,6 @@ public interface IHistorialDAO<T> {
     public T getHistorialId(int id1, int id2);
     
     public void addHistorial(T historial);
+    
+    public void deleteHistorial(int id1, int id2);
 }

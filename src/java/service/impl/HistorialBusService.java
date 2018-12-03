@@ -33,5 +33,10 @@ public class HistorialBusService implements IHistorialBusService {
     public void addHistorial(HistorialBus historial) {
         dao.addHistorial(historial);
     }
+
+    @Override
+    public void deleteHistorial(int id1, int id2) {
+        dao.deleteHistorial(id1, id2);
+    }
   
 }
